@@ -1,0 +1,533 @@
+
+/* Escolha uma combinação de cores */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: #ffffff; /* Texto: Branco */
+  background-color: #1d1b24; /* Fundo: Preto */
+}
+
+
+/* Containers */
+#game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 100vh;
+  background: url("Inicial.png");
+  background-size: cover; /* Ou background-size: auto; */
+  background-repeat: no-repeat;
+  background-position: center center;
+  box-sizing: border-box;
+}
+
+#status-container {
+  flex: 1;
+  padding: 100px;
+  height: 500px;
+  width: 300px;
+  border: 0px solid rgba(255, 255, 255, 0.2); 
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: calc(100vh - 200px); /* Aumenta o tamanho do container de status */
+  box-sizing: border-box;
+  margin: 10px;
+  background-color: #29174a; /* Fundo: Roxo Escuro */
+  border-radius: 30px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 8.5%;
+  transform: translate(-50%, -50%);
+}
+
+#shop-container {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: calc(100vh - 40px);
+  margin: 10px;
+  background-color: #5e468d; /* Fundo: Roxo Claro */
+  border-radius: 5px;
+  margin-bottom: 20px; /* Espaçamento inferior */
+  align-items: normal; /* Alinhar elementos ao topo */
+}
+#action-container {
+  flex: 2;
+  padding: 20px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+  gap: 10px;
+  overflow-y: auto;
+  width: 100%;
+  position: fixed;
+  top: 5%;
+  background-color: #00CED1;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+
+
+/* Botões */
+button {
+  display: block;
+  margin: 5px auto;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  background-color: #ff3333; /* Botões: Vermelho */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+/* Efeito de hover nos botões */
+button:hover {
+  background-color: #ff0000; /* Botões: Vermelho mais escuro */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Barra de felicidade */
+#happiness-bar {
+  height: 20px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  background-color: lightgray; /* Cor de fundo da barra */
+  border-radius: 10px; /* Borda arredondada */
+}
+
+#happiness-fill {
+  height: 100%;
+  background-color: green;
+  width: 0;
+  transition: width 0.5s ease-in-out;
+  border-radius: 8px; /* Borda arredondada */
+}
+
+.happiness-full #happiness-fill {
+  width: 100%;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Avatares */
+#player-avatar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#player-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.narrative {
+  margin-bottom: 20px;
+}
+
+/* Estilos para a janela pop-up */
+.popup-container {
+  display: none;
+  position: fixed;
+  left: 31.5%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #dddddd;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  
+}
+/* Adicione animação de fadeIn à classe .show-popup */
+.show-popup {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+/* Estilos específicos para a animação de escala */
+.scale-popup {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+.popup-container.show-popup {
+  display: block;
+}
+.show-popup {
+  display: block;
+}
+/* Escolha de avatar */
+.avatar-options {
+  display: none;
+  position: absolute;
+  top: 14%;
+  left: 4%;
+  background-color: #dddddd;
+  border: 1px solid #ccc;
+  padding: 5px;
+  z-index: 1000;
+}
+
+.avatar-options img {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+#video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Camada de borrão */
+#blur-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Cor de fundo com transparência */
+  backdrop-filter: blur(10px); /* Aplica o efeito de borrão */
+  z-index: -2;
+}
+
+.shop-container {
+  height: 900px;
+  width: 300px;
+  display: none;
+  position: fixed;
+  top: 49%;
+  left: 91.9%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #dddddd;
+  overflow-y: scroll;
+}
+
+
+button.shop-button {
+  /* Estilos específicos para o botão da loja */
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 55px;
+}
+
+
+/* Adicione estas classes de animação */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease-in-out;
+}
+.large-button {
+  font-size: 20px; /* Ajuste o tamanho da fonte conforme necessário */ 
+  padding: 10px 15px;
+  width: 350px;/* Ajuste o preenchimento conforme necessário */
+  height: 70px;
+  margin-top: 1px; /* Ajuste a margem conforme necessário */
+}
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+/* Estilos para o modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para o conteúdo do modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+/* Estilos para o botão de fechar */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Estilos para o botão de menu */
+.hamburger-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  top: 1.5%;
+  left: 2%;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.line {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 5px auto;
+  transition: 0.3s;
+}
+
+#hamburger {
+  display: none;
+}
+
+#hamburger:checked + .hamburger-icon .line:nth-child(1) {
+  transform: rotate(45deg) translate(-2px, 2px);
+}
+
+#hamburger:checked + .hamburger-icon .line:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger:checked + .hamburger-icon .line:nth-child(3) {
+  transform: rotate(-45deg) translate(-2px, -2px);
+}
+
+.menu {
+  position: fixed;
+  top: 5%;
+  left: 6.5%;
+  width: 225px; /* Aumente a largura conforme necessário */
+  height: 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: 0.3s;
+  transform: translateX(-50%);
+  z-index: -2;
+}
+
+#hamburger:checked ~ .menu {
+  height: 200px; /* Ajuste a altura conforme necessário */
+}
+
+.menu ul {
+  list-style: none;
+  padding: 20px;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+#menu a:hover {
+  color: #f39c12;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+}
+
+
+/*Musica*/
+
+/* Estilos para o switch toggle */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #4caf50; /* Verde quando habilitado */
+}
+
+.toggle-label::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggle-checkbox:checked + .toggle-label::before {
+  transform: translateX(26px); /* Move para a direita quando habilitado */
+}
+/* Estilo para a barra de progresso de sabedoria */
+.progress {
+  width: 100%;
+  background-color: #ccc;
+  height: 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+
+
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background-color: #4CAF50; /* Cor da barra de progresso */
+  border-radius: 5px;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Estilo para o texto de sabedoria */
+#wisdom {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  margin-left: 10px;
+}
+
+/* Estilo para o contêiner de status */
+#status-container {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+#day-progress {
+  height: 100%;
+  width: 0;
+  background-color: green;
+  transition: width 1s linear;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+#day-progress-bar {
+  width: 1000px; /* Aumente a largura conforme necessário */
+  height: 15px; /* Mantenha ou ajuste a altura conforme necessário */
+  background-color: #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#day-counter {
+  text-align: center;
+  margin-top: 5px;
+}
+
+
+#action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centraliza verticalmente */
+  gap: 10px;
+}
+
+
+.aligned-button {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+}
+
+.aligned-button img {
+  margin-right: 10px; /* Espaçamento entre a imagem e o texto (ajuste conforme necessário) */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.alert {
+  animation: fadeIn 0.5s ease-in-out;
+}

@@ -1,0 +1,64 @@
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Alterar Senha</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="./StyleAlterarSenha.css">
+  <link rel="web icon" type="img" href="../Img/brasaodicria.png">
+</head>
+
+<body>
+
+  <div class="wrapper" id="app">
+    <div class="card-form">
+      <div class="card-list">
+        <div class="card-item" v-bind:class="{ '-active' : isCardFlipped }">
+          <div class="card-item__side -front">
+            <div class="card-item__focus" v-bind:class="{'-active' : focusElementStyle }"
+              v-bind:style="focusElementStyle" ref="focusElement"></div>
+            <div class="card-item__cover">
+              <img :src="currentBackgroundImage" class="card-item__bg">
+            </div>
+
+            <div class="card-item__wrapper">
+              <div class="card-item__top">
+                <div class="card-item__type">
+                  <transition name="slide-fade-up">
+                    <img src="../img/CNO.png" v-if="getCardType" v-bind:key="getCardType" alt="" 
+                      class="card-item__typeImg"> 
+                  </transition>  <!--  Logo da nossa empresa    -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colocar para colocar o email aqui--> <!-- Arrumar ele, puxar ele para cima -->
+        <div class="card-form__inner">
+          <div class="card-input">
+            <label for="email" class="card-input__label">E-mail</label>
+            <input type="email" id="email" class="card-input__input" v-model="email" v-on:focus="focusInput"
+              v-on:blur="blurInput" v-on:click="email = ''" data-ref="email" autocomplete="email">
+          </div>
+
+          <button class="card-form__button" v-on:click="">    <!--v-on:click="sendVerificationEmail" mandar email precisa disso no vue-->
+            Enviar Verificação
+          </button>
+
+          <div style="text-align: center;">
+            <a href="Login.php">Voltar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+    <script src='https://unpkg.com/vue-the-mask@0.11.1/dist/vue-the-mask.js'></script>
+    <script src="./ScriptAlterarSenha.js"></script>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+body {
+    margin-top: 50px;
+}
+
+p {
+    text-align: justify;
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: xx-large;
+}
+
+.container {
+    height: 950px;
+    overflow-y: scroll;
+}

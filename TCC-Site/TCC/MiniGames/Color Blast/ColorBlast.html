@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Blast Game</title>
+    <link rel="stylesheet" href="Style.scss"> <!-- Lembre-se de incluir o link para seu arquivo CSS -->
+
+    <!-- Adicione o link para a fonte na seção head -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: url('SpaceStar.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .container {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Aplique a fonte à classe "controls" */
+    .controls {
+        font-family: 'EB Garamond', serif;
+    }
+
+    .image-svg-container {
+        display: flex;
+        align-items: center;
+        margin-top: 20px; /* Ajuste conforme necessário */
+    }
+
+    .image-svg-container img {
+        height: 50px;
+        margin-right: 20px; /* Espaço entre a imagem e o SVG */
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="game-wrap">
+            <canvas width="960" height="540" id="game"></canvas>        
+        </div>
+        <div class="controls" style="color: rgb(179, 177, 177);">Controles:</div>
+        <div class="image-svg-container">
+            <img src="wasdBranco.png" alt="wasdBranco"> <span style="color: white;"> Ou &nbsp;&nbsp;</span> 
+            <img src="setasBranco.png" alt="setasBranco">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M18 9v4H6V9H4v6h16V9" fill="white" />
+            </svg>
+        </div>
+    <script src="Script.js"></script> <!-- Lembre-se de incluir o link para seu arquivo JavaScript -->
+</body>
+</html>

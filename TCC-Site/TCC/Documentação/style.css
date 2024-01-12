@@ -1,0 +1,95 @@
+body {
+  background: #111;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-image: linear-gradient(45deg, #191a27, #2c3a4e);
+  font-family: 'Montserrat', sans-serif;
+ }
+ 
+ .card-container {
+  display: flex;
+  width: 100%;
+  height: 100000px; /* Aumenta a altura do card-container */
+  overflow: hidden;
+ }
+ 
+ .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  border: 0px solid rgba(255, 255, 255, 0.2);
+  flex-direction: column;
+  max-height: calc(100vh - 185px);
+  background-color: #2f1264;
+  border-radius: 30px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transform: translateX(-100%);
+  opacity: 0;
+  display: flex;
+  color: white;
+ }
+ 
+ .card-image {
+  width: 100%;
+  border-radius: 30px 30px 0 0;
+ }
+ 
+ .card-content {
+  padding: 20px;
+ }
+ 
+ .card.visible {
+  transform: translateX(0);
+  opacity: 1;
+ }
+ 
+ .title {
+  color: rgb(192, 190, 190);
+  font-size: 18px;
+  margin-bottom: 20px;
+ }
+ 
+ button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 25px;
+  margin-top: 8px;
+  transition: background-color 0.3s ease-in-out;
+ }
+ 
+ button:hover {
+  background-color: #2f1264;
+ }
+ 
+ .social-icons {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente os ícones */
+  margin-top: 10px;
+ }
+ 
+ .social-icons a {
+  font-size: 22px;
+  color: white;
+  transition: opacity 0.3s ease-in-out;
+  margin: 0 10px;
+ }
+ 
+ .social-icons a:hover {
+  opacity: 0.7;
+ }

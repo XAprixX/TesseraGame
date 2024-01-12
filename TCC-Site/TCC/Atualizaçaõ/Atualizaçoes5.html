@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Atualizações</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+<style>
+	/* Adicione estas regras de estilo para centralizar os ícones */
+	#nav {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		/* Defina a altura desejada ou remova se não for necessário */
+	}
+
+	.social-icons-container {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		margin: 0;
+		/* Remova a margem padrão do ul para evitar espaçamento adicional */
+	}
+
+	.icons li {
+		margin: 0 10px;
+		/* Ajuste conforme necessário */
+	}
+
+	.read-more-content {
+		display: none;
+		margin-top: 10px;
+	}
+
+	.read-more-toggle {
+		cursor: pointer;
+		text-decoration: underline;
+		display: block;
+		/* Garante que o botão sempre seja exibido como bloco */
+		margin-top: 10px;
+		/* Adiciona um espaçamento entre o botão e o texto expandido */
+	}
+</style>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper" class="fade-in">
+
+		
+		<a href="../Principal/TelaPrincipal.html"><button class="btn" type="button">
+			<strong>Voltar</strong>
+			<div id="container-stars">
+			  <div id="stars"></div>
+			</div>
+		  
+			<div id="glow">
+			  <div class="circle"></div>
+			  <div class="circle"></div>
+			</div>
+		  </button>
+		</a>
+
+		<!-- Intro -->
+		<div id="intro">
+			<h1>Nossas<br />
+				Atualizações</h1>
+			<ul class="actions">
+				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+			</ul>
+		</div>
+
+		<!-- Header -->
+		<header id="header">
+			<a href="Atualizaçoes.html" class="logo">Atualizações</a>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<div class="social-icons-container">
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Featured Post -->
+
+			<!-- Adicione este script para exibir a data atual 
+			<script>
+				document.addEventListener('DOMContentLoaded', function () {
+					var currentDate = new Date();
+					var options = {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric'
+					};
+					var formattedDate = currentDate.toLocaleDateString('Pt-Br', options);
+
+					var dateSpan = document.querySelector('.date');
+					dateSpan.textContent = formattedDate;
+				});
+			</script>-->
+
+			<article class="post featured">
+				<header class="major">
+					<span class="date">09 de Janeiro, 2024</span>
+					<h2><a href="#">Lançamento<br />demo</a></h2>
+					<p>Obrigado a todos pela colaboração para o desenvolvimento para o lançamento do jogo</p>
+				</header>
+				<a class="image main"><img src="images/Logo.png" alt="" /></a>
+				<a class="read-more-toggle button large">Leia mais <span>&#9660;</span></a>
+				<div class="read-more-content">
+					<!-- Seu texto aqui -->
+					<p>Expressamos nossa profunda gratidão a todos que contribuíram para o desenvolvimento e lançamento
+						do jogo. Cada um de vocês desempenhou um papel vital, trazendo paixão e expertise que
+						transformaram este projeto incrível em realidade. Agradecemos pela dedicação, esforço e
+						entusiasmo dedicados. Juntos, criamos uma experiência de jogo excepcional que certamente trará
+						alegria e diversão aos jogadores. Estamos entusiasmados em compartilhar esta jornada emocionante
+						e esperamos que todos apreciem o fruto de nosso esforço conjunto. Mais uma vez, obrigado pela
+						colaboração e comprometimento com a excelência. Que esta seja apenas a primeira de muitas
+						aventuras de sucesso que trilharemos juntos!</p>
+
+				</div>
+			</article>
+
+
+
+			<article class="post featured">
+				<header class="major">
+					<span class="date">22 de Dezembro, 2023</span>
+					<h2><a href="#"> Avatares <br />disponiveis!</a></h2>
+					<p>Melhoria na jogabilidade</p>
+				</header>
+				<a class="image main"><img src="images/avatar_capa.jpg" alt="" /></a>
+				<a style="display: block;" class="read-more-toggle2 button large">Leia mais <span>&#9660;</span></a>
+				<div class="read-more-content2" style="display: none;">
+					<!-- Seu texto aqui -->
+					<p>Texto expandidodas2...</p>
+				</div>
+			</article>
+
+			<article class="post featured">
+				<header class="major">
+					<span class="date">19 de Dezembro, 2023</span>
+					<h2><a href="#">Ouça nossa <br />musica!</a></h2>
+					<p>Melhorias nas barras de jogo e melhorias php</p>
+				</header>
+				<a class="image main"><img src="images/images.png" alt="" /></a>
+				<a style="display: block;" class="read-more-toggle3 button large">Leia mais <span>&#9660;</span></a>
+				<div class="read-more-content3" style="display: none;">
+					<p>Ouça ja nossa musica!!</p>
+					<audio id="myAudio" controls autoplay preload="auto" volume="0.5" loop>
+						<source src="../JOgo/Musica/AudioTodo.mp3" type="audio/mpeg">
+						Seu navegador não suporta o elemento de áudio.
+					   </audio>
+				</div>
+			</article>
+
+			<!-- Footer -->
+			<footer>
+				<div class="pagination">
+					<!--<a href="#" class="previous">Prev</a>-->
+					<a href="Atualizaçoes4.html" class="page">4</a>
+					<a href="Atualizaçoes5.html" class="page active">5</a>
+					<span class="extra">&hellip;</span>
+					
+				</div>
+			</footer>
+
+
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		var readMoreToggle = document.querySelector('.read-more-toggle');
+		var readMoreContent = document.querySelector('.read-more-content');
+
+		readMoreToggle.addEventListener('click', function () {
+			if (readMoreContent.style.display === 'none' || getComputedStyle(readMoreContent).display ===
+				'none') {
+				readMoreContent.style.display = 'block';
+			} else {
+				readMoreContent.style.display = 'none';
+			}
+		});
+	});
+</script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		var readMoreToggle2 = document.querySelector('.read-more-toggle2');
+		var readMoreContent2 = document.querySelector('.read-more-content2');
+
+		readMoreToggle2.addEventListener('click', function () {
+			if (readMoreContent2.style.display === 'none' || getComputedStyle(readMoreContent2).display ===
+				'none') {
+				readMoreContent2.style.display = 'block';
+			} else {
+				readMoreContent2.style.display = 'none';
+			}
+		});
+	});
+
+	document.addEventListener('DOMContentLoaded', function () {
+		var readMoreToggle3 = document.querySelector('.read-more-toggle3');
+		var readMoreContent3 = document.querySelector('.read-more-content3');
+
+		readMoreToggle3.addEventListener('click', function () {
+			if (readMoreContent3.style.display === 'none' || getComputedStyle(readMoreContent3).display ===
+				'none') {
+				readMoreContent3.style.display = 'block';
+			} else {
+				readMoreContent3.style.display = 'none';
+			}
+		});
+	});
+</script>
+
+
+
+</html>

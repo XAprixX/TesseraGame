@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('Quadra.jpg'); /* Substitua 'caminho/para/sua/imagem.jpg' pelo caminho correto para sua imagem de fundo. */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+  }
+
+  h2 {
+    text-align: center;
+    color: #333; /* Cor do título */
+    margin: 20px 0;
+  }
+
+  canvas {
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #000; /* Borda preta */
+  }
+
+  .game-canvas {
+    background-color: transparent; /* Fundo transparente para o jogo */
+  }
+
+  #game-container {
+    width: 400px;
+    height: 625px;
+    margin: 0 auto;
+    
+  }
+
+  #score-container {
+    text-align: center;
+  }
+
+  #current-score {
+    font-size: 40px;
+    color: #000; /* Cor do placar atual */
+    margin: 0;
+  }
+
+  #high-score {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0); /* Cor do texto do recorde */
+    margin: 10px 0;
+  }
+
+  #miss-container {
+    text-align: center;
+  }
+
+  #current-miss {
+    font-size: 40px;
+    color: #000; /* Cor do placar de erros */
+    margin: 0;
+  }
+
+  #miss-text {
+    font-size: 40px;
+    color: #000; /* Cor do texto de erros */
+    margin: 10px 0;
+  }
+
+  #current-best {
+    font-size: 40px;
+    color: #00e6e6; /* Cor do melhor placar */
+    margin: 0;
+  }
+
+  #current-best-score {
+    font-size: 40px;
+    color: #dee0e0; /* Cor do melhor placar */
+    margin: 0;
+  }
